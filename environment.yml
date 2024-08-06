@@ -18,6 +18,7 @@ dependencies:
   - ipython
   - pre-commit
   - metpy
+  - tqdm
   - pip:
     - sphinx-autodoc2
     - sphinx-book-theme

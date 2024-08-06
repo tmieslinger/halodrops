@@ -4,6 +4,7 @@ import configparser
 import inspect
 import os
 import xarray as xr
+from tqdm import tqdm
 
 
 def get_mandatory_args(function):
@@ -262,7 +263,9 @@ def iterate_Sonde_method_over_dict_of_Sondes_objects(
 
     for function_name in functions:
         new_dict = {}
-        for key, value in my_dict.items():
+        for key, value in tqdm(
+            my_dict.items(), desc=f"  {function_name:40s}", unit="sonde"
+        ):
             function = getattr(Sonde, function_name)
             result = function(value, **get_args_for_function(config, function))
             if result is not None:
