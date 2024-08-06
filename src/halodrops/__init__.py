@@ -50,7 +50,7 @@ def main():
     args = parser.parse_args()
     import os
 
-    config_file_path = args.config_file_path
+    config_file_path = os.path.abspath(args.config_file_path)
     config_dirname = os.path.dirname(config_file_path)
     config_basename = os.path.basename(config_file_path)
 
