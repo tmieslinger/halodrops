@@ -224,9 +224,8 @@ class Sonde:
         """
         if hasattr(self, "launch_detect"):
             if self.launch_detect == False:
-                print(
-                    f"No launch detected for Sonde {self.serial_id}. I am not running QC checks for this Sonde."
-                )
+                print(f"No launch detected for Sonde {self.serial_id}. Dropping sonde.")
+                return None
             else:
                 return self
         else:
